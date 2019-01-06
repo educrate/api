@@ -6,10 +6,17 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const college = sequelizeClient.define('college', {
-    text: {
-      type: DataTypes.STRING,
-      allowNull: false
+    uuid: { 
+      type: DataTypes.UUID, 
+      primaryKey: true 
+    },
+    name: { 
+      type: DataTypes.STRING, 
+      allowNull: false 
     }
+  }, {
+    underscored: true,
+    freezeTableName: true
   }, {
     hooks: {
       beforeCount(options) {
