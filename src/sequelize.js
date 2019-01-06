@@ -1,8 +1,11 @@
 const Sequelize = require('sequelize');
 
 module.exports = function (app) {
-  const connectionString = app.get('mysql');
-  const sequelize = new Sequelize(connectionString, {
+  const database = app.get('database');
+  const username = app.get('username');
+  const password = app.get('password');
+
+  const sequelize = new Sequelize(database, username, password, {
     dialect: 'mysql',
     logging: false,
     operatorsAliases: false,
