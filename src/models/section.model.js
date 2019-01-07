@@ -24,16 +24,13 @@ module.exports = function (app) {
       allowNull: false
     },
     startsAt: {
-      type: DataTypes.Date,
+      type: DataTypes.DATE,
       allowNull: false
     },
     endsAt: {
-      type: DataTypes.Date,
+      type: DataTypes.DATE,
       allowNull: false
     }
-  }, {
-    underscored: true,
-    freezeTableName: true
   }, {
     hooks: {
       beforeCount(options) {

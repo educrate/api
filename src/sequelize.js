@@ -10,7 +10,8 @@ module.exports = function (app) {
     logging: false,
     operatorsAliases: false,
     define: {
-      freezeTableName: true
+      freezeTableName: true,
+      underscored: true
     }
   });
   const oldSetup = app.setup;

@@ -20,9 +20,6 @@ module.exports = function (app) {
       allowNull: false
     }
   }, {
-    underscored: true,
-    freezeTableName: true
-  }, {
     hooks: {
       beforeCount(options) {
         options.raw = true;

@@ -12,9 +12,6 @@ module.exports = function (app) {
       primaryKey: true 
     }
   }, {
-    underscored: true,
-    freezeTableName: true
-  }, {
     hooks: {
       beforeCount(options) {
         options.raw = true;

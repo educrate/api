@@ -16,7 +16,7 @@ module.exports = function (app) {
       allowNull: false
     },
     startsAt: {
-      type: DataTypes.Date,
+      type: DataTypes.DATE,
       allowNull: false
     },
     state: {
@@ -28,9 +28,6 @@ module.exports = function (app) {
       type: DataTypes.STRING, 
       allowNull: false 
     }
-  }, {
-    underscored: true,
-    freezeTableName: true
   }, {
     hooks: {
       beforeCount(options) {
