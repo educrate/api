@@ -6,10 +6,22 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const review = sequelizeClient.define('review', {
-    text: {
-      type: DataTypes.STRING,
+    uuid: { 
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV1, 
+      primaryKey: true 
+    },
+    rating: {
+      type: DataTypes.FLOAT,
+      allowNull: false
+    },
+    message: {
+      type: DataTypes.TEXT,
       allowNull: false
     }
+  }, {
+    underscored: true,
+    freezeTableName: true
   }, {
     hooks: {
       beforeCount(options) {

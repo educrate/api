@@ -6,7 +6,16 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const users = sequelizeClient.define('users', {
-  
+    uuid: { 
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV1, 
+      primaryKey: true 
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -15,9 +24,10 @@ module.exports = function (app) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-  
-  
+    }
+  }, {
+    underscored: true,
+    freezeTableName: true
   }, {
     hooks: {
       beforeCount(options) {
