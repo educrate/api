@@ -6,10 +6,31 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const job = sequelizeClient.define('job', {
-    text: {
-      type: DataTypes.STRING,
+    uuid: { 
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV1, 
+      primaryKey: true 
+    },
+    duration: {
+      type: DataTypes.SMALLINT,
       allowNull: false
+    },
+    startsAt: {
+      type: DataTypes.Date,
+      allowNull: false
+    },
+    state: {
+      type: DataTypes.ENUM('PENDING', 'CURRENT', 'EXPIRED'),
+      defaultValue: 'PENDING',
+      allowNull: false
+    },
+    name: { 
+      type: DataTypes.STRING, 
+      allowNull: false 
     }
+  }, {
+    underscored: true,
+    freezeTableName: true
   }, {
     hooks: {
       beforeCount(options) {

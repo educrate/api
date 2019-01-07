@@ -6,10 +6,14 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const instructor = sequelizeClient.define('instructor', {
-    text: {
-      type: DataTypes.STRING,
-      allowNull: false
+    uuid: { 
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV1, 
+      primaryKey: true 
     }
+  }, {
+    underscored: true,
+    freezeTableName: true
   }, {
     hooks: {
       beforeCount(options) {
