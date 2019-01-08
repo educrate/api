@@ -23,10 +23,6 @@ module.exports = function (app) {
   tutor.associate = function (models) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
-    tutor.hasOne(models.user, {
-      foreignKey: 'user_id',
-      as: 'loginDetails'
-    });
   };
 
   return tutor;

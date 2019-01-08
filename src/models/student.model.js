@@ -23,6 +23,9 @@ module.exports = function (app) {
   student.associate = function (models) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
+    // student.hasMany(models.section, {
+    //   as: 'studentSections'
+    // });
   };
 
   return student;

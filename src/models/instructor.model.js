@@ -23,6 +23,9 @@ module.exports = function (app) {
   instructor.associate = function (models) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
+    instructor.hasMany(models.section, {
+      as: 'instructorSections'
+    });
   };
 
   return instructor;
